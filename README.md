@@ -1,5 +1,7 @@
-# DOODLE
+# DOODLE <h1>
 O Doodle é um servidor de aplicações local, onde o usuário pode realizar o deploy de diversos tipos de aplicações e até servidores de banco de dados, sendo todos gerenciados pelo servidor e criados como containeres Docker.
+
+### [Trello Oficial][trello]
 
 ## Planejamento dos entregáveis
 ### Sprint 1
@@ -28,3 +30,6 @@ O Doodle foi desenvolvido em Java utilizando o framework Spring Boot e Maven (bu
 > `sudo mvn clean spring-boot:run`
 
 > O sistema deve subir tanto o backend, quanto as telas na porta padrão 8080.
+
+
+[trello]:https://trello.com/b/S7Vku5Py/todo
