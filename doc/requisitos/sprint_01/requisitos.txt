@@ -1,0 +1,78 @@
+Sprint 1 - Requisitos
+
+====== Modelagem ======
+
+O sistema deve salvar as informações dos usuários e suas permissões.
+Os usuários precisam ter nome, username, senha, data de criação e deve mostrar se está ativo ou inativo.
+Um usuário pode ter mais de uma permissão. Uma mesma permissão pode ser aplicada à vários usuários. Deve ser possível criar usuários sem nenhuma permissão.
+
+O sistema deve salvar as informações do deploy.
+Para cada deploy, o sistema deve salvar a data de criação, o usuário que realizou o deploy, a imagem docker gerada e o container, bem como a versão e o estado.
+A versão do deploy deve ser auto incrementada. O estado do deploy deve mostrar apenas o estado final do deploy. A imagem docker deve ser preenchida obrigatoriamente.
+O container deverá ser salvo com nome, id do conatiner, nome da network interna, porta padrão, estado (se está parado ou rodando) e data de criação.
+
+O sistema deve salvar as informações das aplicações.
+Cada aplicação deve conter: nome, data de criação, porta de acesso e configurações.
+Cada configuração de ser salva com id, nome e valor. Uma configuração deve pertencer a uma, e somente uma, aplicação. Uma aplicação pode ter várias configurações.
+Uma aplicação pode conter vários deploys, porém um deploy só pode pertencer a uma, e somente uma, aplicação.
+Uma aplicação também deve manter o registro de permissões para cada usuário. Um usuário pode ter diversas permissões dentro de uma aplicação e uma aplicação pode conter diversos usuários.
+Também é necessário salvar um registro das ações de cada usuário dentro da aplicação: deve conter o nome do usuário, a data e hora da ação, o tipo de ação e uma descrição.
+
+====== Permissões ======
+
+O sistema deve possuir três tipos de acessos: VIEWER, DEVELOPER e ADMIN.
+
+O usuário desenvolvedor deve ser capaz de realizar o deploy de aplicações.
+O usuário desenvolvedor deve ser capaz de visualizar o log e o estado do deploy.
+
+O usuário visualizador deve ser capaz de visualizar as configurações e estado da aplicação, mas não pode realizar nenhum deploy ou modificar qualquer configuração aplicação ou no servidor.
+
+Somente o usuário administrador pode criar, editar ou remover aplicações do servidor.
+Somente o usuário administrador pode alterar as permissões dos demais usuários.
+Somente o usuário administrador pode criar, editar ou remover configurações do servidor.
+
+
+====== Deploy ======
+
+O sistema deve permitir o deploy de aplicações Java e Vue.
+O sistema deve realizar o deploy em containeres Docker, sendo cada deploy uma imagem docker diferente.
+As imagens devem ser geradas automaticamente conforme as configurações de cada aplicação.
+Para cada aplicação, o sistema deve criar uma rede interna para comunicação no Docker.
+O sistema deve realizar o deploy através de comandos docker, executados diretamente no sistema local (permitindo configurações manuais, porém não recomendadas).
+O sistema deve realizar o deploy das aplicações através de um sistema de filas de deploy.
+As configurações de aplicação devem ser escritas em formato .yml automaticamente pelo sistema.
+O sistema deve permitir a criação de variáveis de ambiente para cada aplicação.
+
+===== Telas =====
+O sistema deve possuir inicialmente 4 telas.
+
+Tela de configuração do servidor:
+	Deve ser acessada somente por usuário com permissão ADMIN.
+	Deve conter as configurações do servidor: quantidade de aplicações; conexões de banco; memória disponível para cada aplicação; variáveis de ambiente globais.
+	Informações sobre os containeres Docker: quantidade de containeres ativos e inativos; quantidade de imagens geradas por aplicação.
+
+Tela de Login:
+	Pode ser acessada por TODOS os usuários.
+	Deve conter um formulário com nome de usuário e senha.
+	Deve conter um único botão para realizar o login.
+	Deve mostrar apenas uma logo simples do servidor.
+
+Dashboard:
+	Pode ser acessada por TODOS os usuários.
+	Comum para todos os usuários:
+		Deve conter uma barra de busca para pesquisa de aplicações.
+		Deve mostrar a lista de aplicações disponíveis para o usuário atual.
+	Para os usuários ADMIN:
+		Deve conter um botão para acessar as configurações do servidor.
+		Deve conter um botão para criar uma nova aplicação.
+
+Tela de aplicação:
+	Pode ser acessada por TODOS os usuários.
+	Para o usuário VIEWER:
+		Deve mostrar as configurações da aplicação e o estado, porém não deve permitir nenhuma edição.
+	Para os demais usuários:
+		Deve mostrar as configurações da aplicação, o estado e o log do último deploy.
+		Deve permitir edições nas configurações.
+	Para usuário ADMIN:
+		Deve conter um botão para exclusão da aplicação.
+

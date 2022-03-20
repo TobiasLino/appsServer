@@ -1,0 +1,6 @@
+Sprint 01 -> User Stories 
+
+Como administrador de sistemas, eu preciso de um servidor de aplicações que realize deploys com Docker sem a necessidade de hospedagem na nuvem, pois gostaria de aumentar a escalabilidade horizontal dos meus aplicativos sem grandes dificuldades.
+
+Como administrador de sistemas, eu preciso de um servidor de aplicativos local que gerencie meus containeres Docker, pois estou perdendo muito tempo com configurações padrão para diversos aplicativos semelhantes.
+
