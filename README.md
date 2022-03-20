@@ -4,17 +4,16 @@ O Doodle é um servidor de aplicações local, onde o usuário pode realizar o d
 ### [Trello Oficial][trello]
 
 ## Planejamento dos entregáveis
-### Sprint 1
+### Sprint 1 - 25/03/2022 >> 14/04/2022
 O usuário deve ser capaz de realizar o deploy de diversas aplicações com a tecnologia Java e Vue.js.
 O sistema deve permitir o gerenciamento e configuração de cada aplicação em um ambiente amigável.
 O sistema deve mostrar o estado e o log de build.
 O sistema deve permitir a criação de variáveis de ambiente.
-### Sprint 2
+### Sprint 2 - 25/04/2022 >> 15/05/2022
 O usuário deve ser capaz de adicionar adds independentes para cada aplicação, como servidores de banco de dados, servidores AMQP, etc.
 O sistema deve ser capaz de realizar o rollback de aplicações.
 O usuário administrador deve ser capaz de executar o sistema através de um executável(Windows) ou um script (Linux), podendo definir as configurações de execução da JVM (como tamanho de memória a ser utilizado).
-### Sprint 3
-### Sprint 4
+### Sprint 3 - 16/05/2022 >> 05/06/2022
 
 ### Como compilar o sistema
 O Doodle foi desenvolvido em Java utilizando o framework Spring Boot e Maven (build) e Vue.js para as telas, portanto é possível executá-lo de forma simples.
