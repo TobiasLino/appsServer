@@ -1,0 +1,21 @@
+logging:
+    level:
+        org:
+            hibernate:
+                sql: debug
+                type:
+                    descriptor:
+                        sql: trace
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        password: password
+        url: jdbc:h2:mem:testdb
+        username: sa
+    h2:
+        console:
+            enabled: false
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: validate
